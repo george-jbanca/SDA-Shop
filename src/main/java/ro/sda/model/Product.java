@@ -9,6 +9,14 @@ public class Product {
     private BigDecimal price;
     private String description;
 
+    public Product(){};
+
+    public Product( String name, BigDecimal price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+    }
+
     public Long getId() {
         return this.id;
     }

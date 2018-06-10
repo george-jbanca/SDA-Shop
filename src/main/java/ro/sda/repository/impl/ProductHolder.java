@@ -2,6 +2,7 @@ package ro.sda.repository.impl;
 
 import ro.sda.model.Product;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,17 @@ public class ProductHolder {
     }
 
     public List<Product> getProducts() {
-        return (List<Product>) this.products.values();
+        return new ArrayList<Product>(this.products.values());
+    }
+
+    public Long getNextId(){
+        Long max = 0L;
+        for(Product product : products.values()){
+            if(max < product.getId()){
+                max = product.getId();
+            }
+        }
+        return max+1;
     }
 
 

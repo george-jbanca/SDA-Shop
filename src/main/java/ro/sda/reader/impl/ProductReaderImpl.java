@@ -21,4 +21,5 @@ public class ProductReaderImpl implements ProductReader {
         product.setDescription(scanner.next());
         return product;
     }
+
 }
