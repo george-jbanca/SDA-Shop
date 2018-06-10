@@ -1,6 +1,6 @@
 package ro.sda.repository.impl;
 
-import ro.sda.Product;
+import ro.sda.model.Product;
 import ro.sda.repository.ProductsRepository;
 
 import java.util.ArrayList;

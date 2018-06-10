@@ -1,4 +1,4 @@
-package ro.sda;
+package ro.sda.model;
 
 import java.math.BigDecimal;
 
@@ -7,14 +7,6 @@ public class Product {
     private String name;
     private BigDecimal price;
     private String description;
-
-
-    public Product(String name, BigDecimal price, String description) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-
-    }
 
     public String getName() {
         return this.name;

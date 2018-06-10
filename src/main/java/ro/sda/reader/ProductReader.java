@@ -1,7 +1,9 @@
 package ro.sda.reader;
 
-public class ProductReader {
+import ro.sda.model.Product;
 
+public interface ProductReader {
 
+    Product readProduct();
 
 }
