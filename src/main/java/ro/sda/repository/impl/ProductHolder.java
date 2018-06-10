@@ -38,6 +38,4 @@ public class ProductHolder {
         }
         return max+1;
     }
-
-
 }

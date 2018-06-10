@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Main {
 
-
     public  static void main(String[] args){
         Product product1 = new Product("Iphone", BigDecimal.valueOf(2000),"latest telephone");
         Product product2 = new Product("Iphone2", BigDecimal.valueOf(3000),"latest telephone v2");
@@ -18,5 +17,4 @@ public class Main {
         repository.persistProduct(product2);
         List<Product> products = repository.getAllProducts();
     }
-
 }
