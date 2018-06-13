@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ProductReaderImpl implements ProductReader {
 
-    public Product readProduct() {
+    public Product readProduct(){
         Product product = new Product();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Name: ");
