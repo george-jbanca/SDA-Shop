@@ -12,7 +12,7 @@ public class ProductHolder {
     private Map<Long, Product> products = new HashMap<Long, Product>();
 
     public void setProducts(List<Product> products) {
-        for(Product product : products) {
+        for (Product product : products) {
             this.products.put(product.getId(), product);
         }
     }
@@ -29,13 +29,13 @@ public class ProductHolder {
         return new ArrayList<Product>(this.products.values());
     }
 
-    public Long getNextId(){
+    public Long getNextId() {
         Long max = 0L;
-        for(Product product : products.values()){
-            if(max < product.getId()){
+        for (Product product : products.values()) {
+            if (max < product.getId()) {
                 max = product.getId();
             }
         }
-        return max+1;
+        return max + 1;
     }
 }

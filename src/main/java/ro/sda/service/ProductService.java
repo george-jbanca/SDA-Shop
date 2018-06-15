@@ -1,4 +1,5 @@
 package ro.sda.service;
 
-public class ProductService {
+public interface ProductService {
+
 }
