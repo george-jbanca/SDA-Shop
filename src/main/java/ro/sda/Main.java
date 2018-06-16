@@ -18,5 +18,4 @@ public class Main {
         repository.persistProduct(product2);
         List<Product> products = repository.getAllProducts();
     }
-
 }
