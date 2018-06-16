@@ -5,8 +5,11 @@ import com.google.gson.GsonBuilder;
 import ro.sda.model.Order;
 import ro.sda.repository.OrderRepository;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class OrderRepositoryImpl implements OrderRepository{
@@ -46,5 +49,22 @@ public class OrderRepositoryImpl implements OrderRepository{
         }catch(IOException e) {
             System.out.println("EXCEPTION!!");
         }
+    }
+
+    private List<Order> readFromFile(){
+        List<Order> orders = null;
+        StringBuilder sb = new StringBuilder();
+        try{
+            FileReader fileReader = new FileReader(FILE_PATH);
+            BufferedReader br = new BufferedReader(fileReader);
+            while(br.ready()){
+                sb.append(br.readLine());
+            }
+        }catch (IOException e){
+            System.out.println("EXCEPTIO!");
+        }
+        String ordersLiteral = sb.toString();
+        orders = Arrays.asList(new Gson().fromJson(ordersLiteral,Order[].class));
+        return orders;
     }
 }
