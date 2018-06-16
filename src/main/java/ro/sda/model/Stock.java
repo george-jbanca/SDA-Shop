@@ -2,30 +2,29 @@ package ro.sda.model;
 
 public class Stock {
 
-    private Long productId;
-    private Long stockId;
-    private Integer amount;
-    private String location;
+    Long id;
+    Long productId;
+    Integer amount;
+    String location;
 
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getProductId() {
-        return productId;
+        return this.productId;
     }
 
     public void setProductId(Long productId) {
         this.productId = productId;
     }
 
-    public Long getStockId() {
-        return stockId;
-    }
-
-    public void setStockId(Long stockId) {
-        this.stockId = stockId;
-    }
-
     public Integer getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(Integer amount) {
@@ -33,7 +32,7 @@ public class Stock {
     }
 
     public String getLocation() {
-        return location;
+        return this.location;
     }
 
     public void setLocation(String location) {
