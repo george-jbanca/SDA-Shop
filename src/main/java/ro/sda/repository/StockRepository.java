@@ -1,6 +1,5 @@
 package ro.sda.repository;
 
-import ro.sda.model.Product;
 import ro.sda.model.Stock;
 
 import java.util.List;
