@@ -1,9 +1,12 @@
 package ro.sda;
 
+import ro.sda.model.Order;
 import ro.sda.model.Product;
 import ro.sda.model.Stock;
 import ro.sda.reader.impl.StockReaderImpl;
+import ro.sda.repository.OrderRepository;
 import ro.sda.repository.ProductRepository;
+import ro.sda.repository.impl.OrderRepositoryImpl;
 import ro.sda.repository.impl.ProductRepositoryImpl;
 import ro.sda.repository.impl.StockRepositoryImpl;
 
@@ -20,9 +23,17 @@ public class Main {
         repository.persistProduct(product2);
         List<Product> products = repository.getAllProducts();
 
+        Order order1 = new Order();
+        OrderRepository orderRepository = new OrderRepositoryImpl();
+        orderRepository.persistOrder(order1);
+//        List<Long> order = orderRepository.l
+
+
         StockRepositoryImpl stockRepository = new StockRepositoryImpl();
         StockReaderImpl stockReader = new StockReaderImpl();
         stockRepository.persistStock(stockReader.readStock());
+
+
 
     }
 }

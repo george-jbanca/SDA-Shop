@@ -67,4 +67,10 @@ public class OrderRepositoryImpl implements OrderRepository{
         orders = Arrays.asList(new Gson().fromJson(ordersLiteral,Order[].class));
         return orders;
     }
+
+//    public OrderRepositoryImpl() {
+//        Order order = new Order();
+//        order.setId(holder.getNextId());
+//        holder.addOrder(order);
+//    }
 }

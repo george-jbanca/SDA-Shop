@@ -17,8 +17,11 @@ public class ProductRepositoryImpl implements ProductRepository {
     public static final String FILE_PATH = "products.json";
     private ProductHolder holder = new ProductHolder();
 
-    public List<Product> getAllProducts() {
+    public ProductRepositoryImpl(){
         holder.setProducts(readFromFile());
+    }
+
+    public List<Product> getAllProducts() {
         return holder.getProducts();
     }
 
@@ -67,5 +70,11 @@ public class ProductRepositoryImpl implements ProductRepository {
         String productsLiteral = sb.toString();
         products = Arrays.asList(new Gson().fromJson(productsLiteral,Product[].class));
         return products;
+    }
+
+    public void deleteProduct(Long productId){
+        holder.deleteProduct(productId);
+        writeToFile(holder.getProducts());
+
     }
 }
