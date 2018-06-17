@@ -1,7 +1,9 @@
 package ro.sda.service;
 
+import ro.sda.model.Order;
+
 public interface OrderService {
 
-        void placeOrder(Long orderID);
-        void updateOrder(Long orderID);
+        void placeOrder(Order order);
+        void cancelOrder(Long orderID);
 }
