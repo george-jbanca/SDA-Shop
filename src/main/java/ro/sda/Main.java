@@ -26,7 +26,7 @@ public class Main {
         Order order1 = new Order();
         OrderRepository orderRepository = new OrderRepositoryImpl();
         orderRepository.persistOrder(order1);
-        List<Long> order = orderRepository
+//        List<Long> order = orderRepository.l
 
 
         StockRepositoryImpl stockRepository = new StockRepositoryImpl();
