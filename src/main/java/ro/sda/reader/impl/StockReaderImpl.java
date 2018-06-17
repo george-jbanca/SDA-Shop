@@ -9,14 +9,13 @@ public class StockReaderImpl implements StockReader {
 
     public Stock readStock(){
         Stock stock = new Stock();
-        // citim product id
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Product ID: ");
-//        stock.getStockId();
-
-
-
+        stock.setProductId(scanner.nextLong());
+        System.out.println("Stock amount: ");
+        stock.setAmount(scanner.nextInt());
+        System.out.println("Location: ");
+        stock.setLocation(scanner.next());
 
         return stock;
     }

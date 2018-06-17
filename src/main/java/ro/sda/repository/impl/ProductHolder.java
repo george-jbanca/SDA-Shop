@@ -38,4 +38,7 @@ public class ProductHolder {
         }
         return max + 1;
     }
+    public void deleteProduct(Long productId) {
+        this.products.remove(productId);
+    }
 }

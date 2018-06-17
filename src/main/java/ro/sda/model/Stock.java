@@ -7,6 +7,16 @@ public class Stock {
     Integer amount;
     String location;
 
+    public Stock(){
+
+    }
+
+    public Stock(Long productId, Integer amount, String location) {
+        this.productId = productId;
+        this.amount = amount;
+        this.location = location;
+    }
+
     public Long getId() {
         return this.id;
     }

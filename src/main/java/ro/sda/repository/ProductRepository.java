@@ -14,4 +14,6 @@ public interface ProductRepository {
     void persistProduct(Product product);
 
     void persistProducts(List<Product> products);
+
+    void deleteProduct(Long productId);
 }
