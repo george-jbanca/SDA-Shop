@@ -29,6 +29,10 @@ public class StockRepositoryImpl implements StockRepository {
         return holder.getStocks();
     }
 
+    public StockRepositoryImpl() {
+
+    }
+
     public void persistStock(Stock stock) {
         stock.setId(holder.getNextId());
         holder.addStock(stock);
@@ -55,20 +59,24 @@ public class StockRepositoryImpl implements StockRepository {
         }
     }
 
-    private List<Stock> readFromFile(){
+    private List<Stock> readFromFile() {
         List<Stock> stocks = null;
         StringBuilder sb = new StringBuilder();
-        try{
+        try {
             FileReader fileReader = new FileReader(FILE_PATH);
             BufferedReader br = new BufferedReader(fileReader);
-            while(br.ready()){
+            while (br.ready()) {
                 sb.append(br.readLine());
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("EXCEPTI!");
         }
         String stocksLiteral = sb.toString();
-        stocks = Arrays.asList(new Gson().fromJson(stocksLiteral,Stock[].class));
+        stocks = Arrays.asList(new Gson().fromJson(stocksLiteral, Stock[].class));
         return stocks;
+    }
+
+    public void deleteStock(Long stockId) {
+        holder.deleteStock(stockId);
     }
 }

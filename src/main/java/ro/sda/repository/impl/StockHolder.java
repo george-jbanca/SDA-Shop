@@ -38,4 +38,7 @@ public class StockHolder {
         }
         return max + 1;
     }
+    public void deleteStock(Long stockId){
+        this.stocks.remove(stockId);
+    }
 }

@@ -15,4 +15,5 @@ public interface StockRepository {
     void persistStock(Stock stock);
 
     void persistStocks(List<Stock> stocks);
+    void deleteStock(Long stockId);
 }
