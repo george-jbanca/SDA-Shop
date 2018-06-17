@@ -2,7 +2,7 @@ package ro.sda.reader.impl;
 
 import ro.sda.model.Stock;
 import ro.sda.reader.StockReader;
-
+import ro.sda.repository.impl.StockHolder;
 import java.util.Scanner;
 
 public class StockReaderImpl implements StockReader {
@@ -13,7 +13,6 @@ public class StockReaderImpl implements StockReader {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Product ID: ");
-//        stock.getStockId();
 
 
 

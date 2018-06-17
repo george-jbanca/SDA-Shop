@@ -10,9 +10,9 @@ public class Order {
 
     private Long id;
     private Long customerId;
-    private List<Product> orderProducts;
+    private List<Long> orderProducts;
     private String placedTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-    private String[] status = {"Placed", "Pending", "Delivered", "Returned", "Canceled", "Problem with payment"};
+    private OrderState status = OrderState.PLACED;
 
     public Long getId() {
         return this.id;
@@ -30,11 +30,11 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public List<Product> getOrderProducts() {
+    public List<Long> getOrderProducts() {
         return this.orderProducts;
     }
 
-    public void setOrderProducts(List<Product> orderProducts) {
+    public void setOrderProducts(List<Long> orderProducts) {
         this.orderProducts = orderProducts;
     }
 
@@ -46,11 +46,11 @@ public class Order {
         this.placedTimeStamp = placedTimeStamp;
     }
 
-    public String[] getStatus() {
+    public OrderState getStatus() {
         return this.status;
     }
 
-    public void setStatus(String[] status) {
+    public void setStatus(OrderState status) {
         this.status = status;
     }
 }

@@ -1,7 +1,10 @@
 package ro.sda;
 
+import ro.sda.model.Order;
 import ro.sda.model.Product;
+import ro.sda.repository.OrderRepository;
 import ro.sda.repository.ProductRepository;
+import ro.sda.repository.impl.OrderRepositoryImpl;
 import ro.sda.repository.impl.ProductRepositoryImpl;
 
 import java.math.BigDecimal;
@@ -16,5 +19,11 @@ public class Main {
         repository.persistProduct(product1);
         repository.persistProduct(product2);
         List<Product> products = repository.getAllProducts();
+
+        Order order1 = new Order();
+        OrderRepository orderRepository = new OrderRepositoryImpl();
+        orderRepository.persistOrder(order1);
+        List<Long> order = orderRepository
+
     }
 }
