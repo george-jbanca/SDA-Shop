@@ -22,7 +22,6 @@ public class StockServiceImpl implements StockService {
         return stockLocation;
     }
 
-
     public void deleteStock(Long stockId) {
         stockRepository.delete(stockId);
 

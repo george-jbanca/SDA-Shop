@@ -40,7 +40,7 @@ public class ProductView implements MyMarketView {
     }
 
     public void processOption(int option) {
-        switch (option){
+        switch (option) {
             case 1:
                 productService.listAllProducts();
                 return;
