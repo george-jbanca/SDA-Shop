@@ -15,9 +15,10 @@ import java.util.List;
 public class ProductRepositoryImpl implements ProductRepository {
 
     public static final String FILE_PATH = "products.json";
+
     private ProductHolder holder = new ProductHolder();
 
-    public ProductRepositoryImpl(){
+    public ProductRepositoryImpl() {
         holder.setProducts(readFromFile());
     }
 
@@ -26,7 +27,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     public Product getProductByID(Long id) {
-       return holder.getProduct(id);
+        return holder.getProduct(id);
     }
 
     public void persistProduct(Product product) {
@@ -36,43 +37,43 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     public void persistProducts(List<Product> products) {
-        for(Product product : products){
+        for (Product product : products) {
             product.setId(holder.getNextId());
             holder.addProduct(product);
         }
         writeToFile(holder.getProducts());
     }
 
-    private void writeToFile(List<Product> products){
+    private void writeToFile(List<Product> products) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String productsLiteral = gson.toJson(products);
         try {
             FileWriter fileWriter = new FileWriter(FILE_PATH);
             fileWriter.write(productsLiteral);
             fileWriter.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("EXCEPTION!!!");
         }
     }
 
-    private List<Product> readFromFile(){
+    private List<Product> readFromFile() {
         List<Product> products = null;
         StringBuilder sb = new StringBuilder();
-        try{
+        try {
             FileReader fileReader = new FileReader(FILE_PATH);
             BufferedReader br = new BufferedReader(fileReader);
-            while(br.ready()){
+            while (br.ready()) {
                 sb.append(br.readLine());
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("EXCEPTION!");
         }
         String productsLiteral = sb.toString();
-        products = Arrays.asList(new Gson().fromJson(productsLiteral,Product[].class));
+        products = Arrays.asList(new Gson().fromJson(productsLiteral, Product[].class));
         return products;
     }
 
-    public void deleteProduct(Long productId){
+    public void deleteProduct(Long productId) {
         holder.deleteProduct(productId);
         writeToFile(holder.getProducts());
 

@@ -34,6 +34,11 @@ public class Main {
         stockRepository.persistStock(stockReader.readStock());
 
 
+        /*
+        * TODO: use GeneralView
+        * * GeneralView generalView = new GeneralView();
+        * * generalView.displayOptions();
+        * */
 
     }
 }

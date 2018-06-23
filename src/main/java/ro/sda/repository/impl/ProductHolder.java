@@ -11,6 +11,9 @@ public class ProductHolder {
 
     private Map<Long, Product> products = new HashMap<Long, Product>();
 
+    /*
+    * TODO: rename to setAllProducts
+    * */
     public void setProducts(List<Product> products) {
         for (Product product : products) {
             this.products.put(product.getId(), product);
@@ -25,6 +28,9 @@ public class ProductHolder {
         return this.products.get(id);
     }
 
+    /*
+    * TODO: rename to getAllProducts
+    * */
     public List<Product> getProducts() {
         return new ArrayList<Product>(this.products.values());
     }
@@ -38,7 +44,9 @@ public class ProductHolder {
         }
         return max + 1;
     }
+
     public void deleteProduct(Long productId) {
         this.products.remove(productId);
     }
+
 }

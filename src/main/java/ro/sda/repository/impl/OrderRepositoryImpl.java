@@ -12,10 +12,17 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class OrderRepositoryImpl implements OrderRepository{
+public class OrderRepositoryImpl implements OrderRepository {
 
     public static final String FILE_PATH = "orders.json";
     private OrderHolder holder = new OrderHolder();
+
+    /*
+     * TODO: do as in ProductRepositoryImpl
+     * */
+    public OrderRepositoryImpl() {
+
+    }
 
     public List<Order> findAllOrders() {
         return holder.getOrders();
@@ -32,45 +39,40 @@ public class OrderRepositoryImpl implements OrderRepository{
     }
 
     public void persistOrders(List<Order> orders) {
-        for(Order order : orders) {
+        for (Order order : orders) {
             order.setId(holder.getNextId());
             holder.addOrder(order);
         }
         writeToFile(holder.getOrders());
     }
 
-    private void  writeToFile(List<Order> orders) {
+    private void writeToFile(List<Order> orders) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String ordersLiteral = gson.toJson(orders);
         try {
             FileWriter fw = new FileWriter(FILE_PATH);
             fw.write(ordersLiteral);
             fw.close();
-        }catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("EXCEPTION!!");
         }
     }
 
-    private List<Order> readFromFile(){
+    private List<Order> readFromFile() {
         List<Order> orders = null;
         StringBuilder sb = new StringBuilder();
-        try{
+        try {
             FileReader fileReader = new FileReader(FILE_PATH);
             BufferedReader br = new BufferedReader(fileReader);
-            while(br.ready()){
+            while (br.ready()) {
                 sb.append(br.readLine());
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("EXCEPTIO!");
         }
         String ordersLiteral = sb.toString();
-        orders = Arrays.asList(new Gson().fromJson(ordersLiteral,Order[].class));
+        orders = Arrays.asList(new Gson().fromJson(ordersLiteral, Order[].class));
         return orders;
     }
 
-//    public OrderRepositoryImpl() {
-//        Order order = new Order();
-//        order.setId(holder.getNextId());
-//        holder.addOrder(order);
-//    }
 }

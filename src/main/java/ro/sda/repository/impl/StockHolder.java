@@ -11,6 +11,9 @@ public class StockHolder {
 
     private Map<Long, Stock> stocks = new HashMap<Long, Stock>();
 
+    /*
+     * TODO: rename to setAllStocks
+     * */
     public void setStocks(List<Stock> stocks) {
         for (Stock stock : stocks) {
             this.stocks.put(stock.getId(), stock);
@@ -25,6 +28,9 @@ public class StockHolder {
         return this.stocks.get(id);
     }
 
+    /*
+     * TODO: rename to getAllStocks
+     * */
     public List<Stock> getStocks() {
         return new ArrayList<Stock>(this.stocks.values());
     }
@@ -38,7 +44,8 @@ public class StockHolder {
         }
         return max + 1;
     }
-    public void deleteStock(Long stockId){
+
+    public void deleteStock(Long stockId) {
         this.stocks.remove(stockId);
     }
 }
