@@ -79,7 +79,7 @@ public class OrderRepositoryImpl implements Repository<Order> {
 
     public void delete(Long productId) {
         holder.deleteOrder(productId);
-        writeToFile(holder.getOrders());
+        writeToFile(holder.getAllOrders());
     }
 
 }
