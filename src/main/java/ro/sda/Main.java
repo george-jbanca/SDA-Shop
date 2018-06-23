@@ -2,7 +2,6 @@ package ro.sda;
 
 import ro.sda.model.Order;
 import ro.sda.model.Product;
-import ro.sda.model.Stock;
 import ro.sda.reader.impl.StockReaderImpl;
 import ro.sda.repository.OrderRepository;
 import ro.sda.repository.ProductRepository;
@@ -30,6 +29,12 @@ public class Main {
         StockRepositoryImpl stockRepository = new StockRepositoryImpl();
         StockReaderImpl stockReader = new StockReaderImpl();
         stockRepository.persistStock(stockReader.readStock());
+
+        /*
+        * TODO: use GeneralView
+        * * GeneralView generalView = new GeneralView();
+        * * generalView.displayOptions();
+        * */
 
     }
 }

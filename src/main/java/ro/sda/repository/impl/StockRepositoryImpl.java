@@ -17,6 +17,13 @@ public class StockRepositoryImpl implements StockRepository {
     public static final String FILE_PATH = "stocks.json";
     private StockHolder holder = new StockHolder();
 
+    /*
+    * TODO: do as in ProductRepositoryImpl
+    * */
+    public StockRepositoryImpl() {
+
+    }
+
     public List<Stock> getAllStockByProductId(Long id) {
         return holder.getStocks();
     }
@@ -29,9 +36,6 @@ public class StockRepositoryImpl implements StockRepository {
         return holder.getStocks();
     }
 
-    public StockRepositoryImpl() {
-
-    }
 
     public void persistStock(Stock stock) {
         stock.setId(holder.getNextId());

@@ -11,6 +11,9 @@ public class OrderHolder {
 
     private Map<Long, Order> orders = new HashMap<Long, Order>();
 
+    /*
+     * TODO: rename to setAllOrders
+     * */
     public void setOrders(List<Order> orders) {
         for (Order order : orders) {
             this.orders.put(order.getId(), order);
@@ -25,6 +28,9 @@ public class OrderHolder {
         return this.orders.get(id);
     }
 
+    /*
+     * TODO: rename to getAllOrders
+     * */
     public List<Order> getOrders() {
         return new ArrayList<Order>(this.orders.values());
     }
