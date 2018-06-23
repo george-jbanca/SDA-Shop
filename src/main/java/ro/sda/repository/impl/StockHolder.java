@@ -14,7 +14,7 @@ public class StockHolder {
     /*
      * TODO: rename to setAllStocks
      * */
-    public void setStocks(List<Stock> stocks) {
+    public void setAllStocks(List<Stock> stocks) {
         for (Stock stock : stocks) {
             this.stocks.put(stock.getId(), stock);
         }
@@ -31,7 +31,7 @@ public class StockHolder {
     /*
      * TODO: rename to getAllStocks
      * */
-    public List<Stock> getStocks() {
+    public List<Stock> getAllStocks() {
         return new ArrayList<Stock>(this.stocks.values());
     }
 

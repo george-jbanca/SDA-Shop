@@ -31,7 +31,6 @@ public class Main {
         StockReaderImpl stockReader = new StockReaderImpl();
         stockRepository.save(stockReader.readStock());
 
-
         /*
         * TODO: use GeneralView
         * * GeneralView generalView = new GeneralView();

@@ -21,11 +21,13 @@ public class OrderRepositoryImpl implements Repository<Order> {
      * TODO: do as in ProductRepositoryImpl
      * */
     public OrderRepositoryImpl() {
+        holder.setAllOrders(readFromFile());
 
     }
 
+
     public List<Order> findAll() {
-        return holder.getOrders();
+        return holder.getAllOrders();
     }
 
     public Order find(Long id) {
@@ -35,7 +37,7 @@ public class OrderRepositoryImpl implements Repository<Order> {
     public void save(Order order) {
         order.setId(holder.getNextId());
         holder.addOrder(order);
-        writeToFile(holder.getOrders());
+        writeToFile(holder.getAllOrders());
     }
 
     public void saveAll(List<Order> orders) {
@@ -43,7 +45,7 @@ public class OrderRepositoryImpl implements Repository<Order> {
             order.setId(holder.getNextId());
             holder.addOrder(order);
         }
-        writeToFile(holder.getOrders());
+        writeToFile(holder.getAllOrders());
     }
 
     private void writeToFile(List<Order> orders) {

@@ -19,11 +19,11 @@ public class ProductRepositoryImpl implements Repository<Product> {
     private ProductHolder holder = new ProductHolder();
 
     public ProductRepositoryImpl() {
-        holder.setProducts(readFromFile());
+        holder.setAllProducts(readFromFile());
     }
 
     public List<Product> findAll() {
-        return holder.getProducts();
+        return holder.getAllProducts();
     }
 
     public Product find(Long id) {
@@ -33,7 +33,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
     public void save(Product product) {
         product.setId(holder.getNextId());
         holder.addProduct(product);
-        writeToFile(holder.getProducts());
+        writeToFile(holder.getAllProducts());
     }
 
     public void saveAll(List<Product> products) {
@@ -41,7 +41,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
             product.setId(holder.getNextId());
             holder.addProduct(product);
         }
-        writeToFile(holder.getProducts());
+        writeToFile(holder.getAllProducts());
     }
 
     private void writeToFile(List<Product> products) {
@@ -75,7 +75,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
 
     public void delete(Long productId) {
         holder.deleteProduct(productId);
-        writeToFile(holder.getProducts());
+        writeToFile(holder.getAllProducts());
 
     }
 }

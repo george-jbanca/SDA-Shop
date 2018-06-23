@@ -14,7 +14,7 @@ public class OrderHolder {
     /*
      * TODO: rename to setAllOrders
      * */
-    public void setOrders(List<Order> orders) {
+    public void setAllOrders(List<Order> orders) {
         for (Order order : orders) {
             this.orders.put(order.getId(), order);
         }
@@ -31,7 +31,8 @@ public class OrderHolder {
     /*
      * TODO: rename to getAllOrders
      * */
-    public List<Order> getOrders() {
+    public List<Order> getAllOrders()
+    {
         return new ArrayList<Order>(this.orders.values());
     }
 
