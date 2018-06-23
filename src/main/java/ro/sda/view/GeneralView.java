@@ -6,11 +6,11 @@ public class GeneralView implements MyMarketView{
 
     }
 
-    public void readOption() {
-
+    public int readOption() {
+        return 0;
     }
 
-    public void processOption() {
+    public void processOption(int option) {
 
     }
 }
