@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class GeneralView implements MyMarketView {
 
+
     ProductView productView = new ProductView();
     OrderView orderView = new OrderView();
     StockView stockView = new StockView();
