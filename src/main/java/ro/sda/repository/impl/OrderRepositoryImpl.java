@@ -3,7 +3,7 @@ package ro.sda.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.model.Order;
-import ro.sda.repository.OrderRepository;
+import ro.sda.repository.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class OrderRepositoryImpl implements OrderRepository {
+public class OrderRepositoryImpl implements Repository<Order> {
 
     public static final String FILE_PATH = "orders.json";
     private OrderHolder holder = new OrderHolder();
@@ -24,21 +24,21 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     }
 
-    public List<Order> findAllOrders() {
+    public List<Order> findAll() {
         return holder.getOrders();
     }
 
-    public Order findOrderById(Long id) {
+    public Order find(Long id) {
         return holder.getOrder(id);
     }
 
-    public void persistOrder(Order order) {
+    public void save(Order order) {
         order.setId(holder.getNextId());
         holder.addOrder(order);
         writeToFile(holder.getOrders());
     }
 
-    public void persistOrders(List<Order> orders) {
+    public void saveAll(List<Order> orders) {
         for (Order order : orders) {
             order.setId(holder.getNextId());
             holder.addOrder(order);
@@ -73,6 +73,11 @@ public class OrderRepositoryImpl implements OrderRepository {
         String ordersLiteral = sb.toString();
         orders = Arrays.asList(new Gson().fromJson(ordersLiteral, Order[].class));
         return orders;
+    }
+
+    public void delete(Long productId) {
+        holder.deleteOrder(productId);
+        writeToFile(holder.getOrders());
     }
 
 }

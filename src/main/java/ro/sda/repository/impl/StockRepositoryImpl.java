@@ -3,7 +3,7 @@ package ro.sda.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.model.Stock;
-import ro.sda.repository.StockRepository;
+import ro.sda.repository.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class StockRepositoryImpl implements StockRepository {
+public class StockRepositoryImpl implements Repository<Stock> {
 
     public static final String FILE_PATH = "stocks.json";
     private StockHolder holder = new StockHolder();
@@ -28,22 +28,22 @@ public class StockRepositoryImpl implements StockRepository {
         return holder.getStocks();
     }
 
-    public Stock findStockById(Long id) {
+    public Stock find(Long id) {
         return holder.getStock(id);
     }
 
-    public List<Stock> findAllStock() {
+    public List<Stock> findAll() {
         return holder.getStocks();
     }
 
 
-    public void persistStock(Stock stock) {
+    public void save(Stock stock) {
         stock.setId(holder.getNextId());
         holder.addStock(stock);
         writeToFile(holder.getStocks());
     }
 
-    public void persistStocks(List<Stock> stocks) {
+    public void saveAll(List<Stock> stocks) {
         for (Stock stock : stocks) {
             stock.setId(holder.getNextId());
             holder.addStock(stock);
@@ -80,7 +80,7 @@ public class StockRepositoryImpl implements StockRepository {
         return stocks;
     }
 
-    public void deleteStock(Long stockId) {
+    public void delete(Long stockId) {
         holder.deleteStock(stockId);
     }
 }

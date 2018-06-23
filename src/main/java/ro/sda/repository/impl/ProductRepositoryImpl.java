@@ -3,7 +3,7 @@ package ro.sda.repository.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ro.sda.model.Product;
-import ro.sda.repository.ProductRepository;
+import ro.sda.repository.Repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProductRepositoryImpl implements ProductRepository {
+public class ProductRepositoryImpl implements Repository<Product> {
 
     public static final String FILE_PATH = "products.json";
 
@@ -22,21 +22,21 @@ public class ProductRepositoryImpl implements ProductRepository {
         holder.setProducts(readFromFile());
     }
 
-    public List<Product> getAllProducts() {
+    public List<Product> findAll() {
         return holder.getProducts();
     }
 
-    public Product getProductByID(Long id) {
+    public Product find(Long id) {
         return holder.getProduct(id);
     }
 
-    public void persistProduct(Product product) {
+    public void save(Product product) {
         product.setId(holder.getNextId());
         holder.addProduct(product);
         writeToFile(holder.getProducts());
     }
 
-    public void persistProducts(List<Product> products) {
+    public void saveAll(List<Product> products) {
         for (Product product : products) {
             product.setId(holder.getNextId());
             holder.addProduct(product);
@@ -73,7 +73,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         return products;
     }
 
-    public void deleteProduct(Long productId) {
+    public void delete(Long productId) {
         holder.deleteProduct(productId);
         writeToFile(holder.getProducts());
 

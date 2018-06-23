@@ -44,4 +44,9 @@ public class OrderHolder {
         }
         return max + 1;
     }
+
+    public void deleteOrder(Long productId) {
+        this.orders.remove(productId);
+    }
+
 }
