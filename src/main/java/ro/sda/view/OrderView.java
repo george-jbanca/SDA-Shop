@@ -1,4 +1,6 @@
-package ro.sda.generalview;
+package ro.sda.view;
 
 public class OrderView {
+
+
 }

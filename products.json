@@ -10,5 +10,17 @@
     "name": "Iphone2",
     "price": 3000,
     "description": "latest telephone v2"
+  },
+  {
+    "id": 3,
+    "name": "Iphone",
+    "price": 2000,
+    "description": "latest telephone"
+  },
+  {
+    "id": 4,
+    "name": "Iphone2",
+    "price": 3000,
+    "description": "latest telephone v2"
   }
 ]
