@@ -21,11 +21,12 @@ public class StockRepositoryImpl implements StockRepository {
     * TODO: do as in ProductRepositoryImpl
     * */
     public StockRepositoryImpl() {
+        holder.setAllStocks(readFromFile());
 
     }
 
     public List<Stock> getAllStockByProductId(Long id) {
-        return holder.getStocks();
+        return holder.getAllStocks();
     }
 
     public Stock findStockById(Long id) {
@@ -33,14 +34,14 @@ public class StockRepositoryImpl implements StockRepository {
     }
 
     public List<Stock> findAllStock() {
-        return holder.getStocks();
+        return holder.getAllStocks();
     }
 
 
     public void persistStock(Stock stock) {
         stock.setId(holder.getNextId());
         holder.addStock(stock);
-        writeToFile(holder.getStocks());
+        writeToFile(holder.getAllStocks());
     }
 
     public void persistStocks(List<Stock> stocks) {
@@ -48,7 +49,7 @@ public class StockRepositoryImpl implements StockRepository {
             stock.setId(holder.getNextId());
             holder.addStock(stock);
         }
-        writeToFile(holder.getStocks());
+        writeToFile(holder.getAllStocks());
     }
 
     private void writeToFile(List<Stock> stocks) {

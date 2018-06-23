@@ -14,7 +14,7 @@ public class ProductHolder {
     /*
     * TODO: rename to setAllProducts
     * */
-    public void setProducts(List<Product> products) {
+    public void setAllProducts(List<Product> products) {
         for (Product product : products) {
             this.products.put(product.getId(), product);
         }
@@ -31,7 +31,7 @@ public class ProductHolder {
     /*
     * TODO: rename to getAllProducts
     * */
-    public List<Product> getProducts() {
+    public List<Product> getAllProducts() {
         return new ArrayList<Product>(this.products.values());
     }
 
