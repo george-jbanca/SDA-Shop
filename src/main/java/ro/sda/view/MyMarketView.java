@@ -4,8 +4,8 @@ public interface MyMarketView {
 
     public void displayOptions();
 
-    public void readOption();
+    public int readOption();
 
-    public void processOption();
+    public void processOption(int option);
 
 }

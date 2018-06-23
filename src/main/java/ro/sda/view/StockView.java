@@ -1,21 +1,21 @@
 package ro.sda.view;
 
+import ro.sda.Constants;
 import ro.sda.model.Order;
 import ro.sda.reader.OrderReader;
 import ro.sda.reader.impl.OrderReaderImpl;
 import ro.sda.service.impl.OrderServiceImpl;
-import sun.security.pkcs11.wrapper.Constants;
+
 
 import java.util.Scanner;
 
 public class StockView implements MyMarketView {
    OrderServiceImpl orderService = new OrderServiceImpl();
-
-    OrderReader orderReader = new OrderReaderImpl();
-
+   OrderReader orderReader = new OrderReaderImpl();
 
 
-    public void displayView() {
+
+    public void displayOptions() {
         int option = -1;
         System.out.println("1.List Stock.");
         System.out.println("2.Add Stock.");
@@ -23,7 +23,7 @@ public class StockView implements MyMarketView {
         option = readOption();
         processOption(option);
         while (option != Constants.EXIT_OPTION) {
-            displayView();
+            displayOptions();
         }
 
 
@@ -39,7 +39,7 @@ public class StockView implements MyMarketView {
     public void processOption(int option) {
         switch (option) {
             case 1:
-                orderService.listOrders();
+//                orderService.();
                 return;
             case 2:
                 Order order = orderReader.readOrder();
