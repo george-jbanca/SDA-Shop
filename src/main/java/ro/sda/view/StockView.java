@@ -6,14 +6,11 @@ import ro.sda.reader.OrderReader;
 import ro.sda.reader.impl.OrderReaderImpl;
 import ro.sda.service.impl.OrderServiceImpl;
 
-
 import java.util.Scanner;
 
 public class StockView implements MyMarketView {
    OrderServiceImpl orderService = new OrderServiceImpl();
    OrderReader orderReader = new OrderReaderImpl();
-
-
 
     public void displayOptions() {
         int option = -1;
@@ -25,15 +22,12 @@ public class StockView implements MyMarketView {
         while (option != Constants.EXIT_OPTION) {
             displayOptions();
         }
-
-
     }
 
     public int readOption() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
-
     }
 
     public void processOption(int option) {
@@ -48,7 +42,6 @@ public class StockView implements MyMarketView {
             case 0:
             default:
                 return;
-
         }
     }
 }

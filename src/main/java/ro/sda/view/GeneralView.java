@@ -44,8 +44,7 @@ public class GeneralView implements MyMarketView {
 //                stockView.displayOptions();
                 return;
             case 4:break;
-            default:return;
+            default: break;
         }
     }
-
 }
