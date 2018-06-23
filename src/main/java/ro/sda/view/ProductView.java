@@ -1,4 +1,4 @@
-package ro.sda.generalview;
+package ro.sda.view;
 
 
 /*
