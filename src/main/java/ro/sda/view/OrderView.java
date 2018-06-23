@@ -1,13 +1,12 @@
 package ro.sda.view;
 
 import ro.sda.Constants;
-import ro.sda.model.Order;
 import ro.sda.reader.OrderReader;
 import ro.sda.reader.impl.OrderReaderImpl;
 import ro.sda.service.OrderService;
 import ro.sda.service.impl.OrderServiceImpl;
-
 import java.util.Scanner;
+
 
 public class OrderView implements MyMarketView {
 
@@ -42,8 +41,10 @@ public class OrderView implements MyMarketView {
                 return;
             case 3:
                 return;
-            default:return;
+            default:
+                return;
 
         }
+
     }
 }
