@@ -1,7 +1,25 @@
 [
   {
     "id": 1,
-    "placedTimeStamp": "2018.06.17.15.00.12",
+    "orderProducts": [],
+    "status": "PLACED"
+  },
+  {
+    "id": 2,
+    "orderProducts": [],
+    "status": "PLACED"
+  },
+  {
+    "id": 3,
+    "orderProducts": [],
+    "status": "PLACED"
+  },
+  {
+    "id": 4,
+    "orderProducts": [
+      7,
+      9
+    ],
     "status": "PLACED"
   }
 ]

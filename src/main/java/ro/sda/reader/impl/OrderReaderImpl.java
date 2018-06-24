@@ -3,22 +3,23 @@ package ro.sda.reader.impl;
 import ro.sda.model.Order;
 import ro.sda.model.OrderState;
 import ro.sda.reader.OrderReader;
+import ro.sda.reader.ProductReader;
 
 import java.util.Scanner;
 
 public class OrderReaderImpl implements OrderReader {
+
+    ProductReader productReader = new ProductReaderImpl();
+
     public Order readOrder() {
-        Order order = new Order();
         Scanner scanner = new Scanner(System.in);
-//        System.out.println("Id: ");
-        System.out.println("cutomerId: ");
-        System.out.println("Product list: ");
-        OrderState orderState = null;
-        while (orderState == null) {
-            System.out.println("Read order state: ");
-            orderState = parseOrderState(scanner.nextLine());
+        Order order = new Order();
+        System.out.println("Input product id: ");
+        String idValue = scanner.nextLine();
+        while (!idValue.equals("x")) {
+            order.getOrderProducts().add(Long.valueOf(idValue));
+            idValue = productReader.readProductId();
         }
-        System.out.println();
         return order;
     }
 

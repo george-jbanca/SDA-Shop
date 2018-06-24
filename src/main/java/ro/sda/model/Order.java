@@ -1,6 +1,7 @@
 package ro.sda.model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,8 +9,8 @@ public class Order {
 
     private Long id;
     private Long customerId;
-    private List<Long> orderProducts;
-    private String placedTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+    private List<Long> orderProducts = new ArrayList<Long>();
+//    private String placedTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     private OrderState status = OrderState.PLACED;
 
     public Long getId() {
@@ -36,13 +37,13 @@ public class Order {
         this.orderProducts = orderProducts;
     }
 
-    public String getPlacedTimeStamp() {
-        return this.placedTimeStamp;
-    }
-
-    public void setPlacedTimeStamp(String placedTimeStamp) {
-        this.placedTimeStamp = placedTimeStamp;
-    }
+//    public String getPlacedTimeStamp() {
+//        return this.placedTimeStamp;
+//    }
+//
+//    public void setPlacedTimeStamp(String placedTimeStamp) {
+//        this.placedTimeStamp = placedTimeStamp;
+//    }
 
     public OrderState getStatus() {
         return this.status;

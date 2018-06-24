@@ -1,28 +1,24 @@
 package ro.sda.view;
 
 import ro.sda.Constants;
-import ro.sda.repository.impl.OrderRepositoryImpl;
-import ro.sda.repository.impl.ProductRepositoryImpl;
-import ro.sda.repository.impl.StockRepositoryImpl;
 
 import java.util.Scanner;
 
 public class GeneralView implements MyMarketView {
 
-
     ProductView productView = new ProductView();
     OrderView orderView = new OrderView();
     StockView stockView = new StockView();
+    int option = -1;
 
     public void displayOptions() {
-        int option = -1;
         System.out.println("1.Product Menu");
         System.out.println("2.Order Menu");
         System.out.println("3.Stock Menu");
-        System.out.println("4.Exit Menu");
+        System.out.println("0.Exit Menu");
         option = readOption();
-        processOption(option);
         while (option != Constants.EXIT_OPTION) {
+            processOption(option);
             displayOptions();
         }
     }
@@ -35,13 +31,13 @@ public class GeneralView implements MyMarketView {
     public void processOption(int option) {
         switch (option) {
             case 1:
-//                productView.displayOptions();
+                productView.displayOptions();
                 return;
             case 2:
-//                orderView.displayOptions();
+                orderView.displayOptions();
                 return;
             case 3:
-//                stockView.displayOptions();
+                stockView.displayOptions();
                 return;
             case 4:break;
             default:break;

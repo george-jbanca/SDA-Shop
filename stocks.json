@@ -4,5 +4,11 @@
     "productId": 3,
     "amount": 40,
     "location": "buc"
+  },
+  {
+    "id": 2,
+    "productId": 11,
+    "amount": 1111,
+    "location": "iasi"
   }
 ]

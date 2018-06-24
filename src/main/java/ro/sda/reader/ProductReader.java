@@ -5,4 +5,6 @@ import ro.sda.model.Product;
 public interface ProductReader {
 
     Product readProduct();
+
+    String readProductId();
 }

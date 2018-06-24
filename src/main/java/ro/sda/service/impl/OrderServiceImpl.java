@@ -4,6 +4,8 @@ import ro.sda.model.OrderState;
 import ro.sda.repository.impl.OrderRepositoryImpl;
 import ro.sda.service.OrderService;
 
+import java.util.List;
+
 public class OrderServiceImpl implements OrderService {
 
     OrderRepositoryImpl orderRepository = new OrderRepositoryImpl();
@@ -18,4 +20,10 @@ public class OrderServiceImpl implements OrderService {
         order.setStatus(OrderState.CANCELED);
         orderRepository.save(order);
     }
+
+    public List<Order> listAllOrders() {
+        return orderRepository.findAll();
+    }
+
+
 }

@@ -10,7 +10,6 @@ public class ProductServiceImpl implements ProductService {
 
     ProductRepositoryImpl productRepository = new ProductRepositoryImpl();
 
-
     public List<Product> listAllProducts() {
         return productRepository.findAll();
     }

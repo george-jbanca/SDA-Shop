@@ -21,4 +21,10 @@ public class ProductReaderImpl implements ProductReader {
         product.setDescription(scanner.next());
         return product;
     }
+
+    public String readProductId() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input product id: ");
+        return scanner.nextLine();
+    }
 }
