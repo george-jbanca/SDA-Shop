@@ -1,17 +1,11 @@
 package ro.sda.view;
 
 import ro.sda.Constants;
-import ro.sda.model.Order;
 import ro.sda.model.Stock;
-import ro.sda.reader.OrderReader;
 import ro.sda.reader.StockReader;
-import ro.sda.reader.impl.OrderReaderImpl;
 import ro.sda.reader.impl.StockReaderImpl;
-import ro.sda.service.impl.OrderServiceImpl;
 import ro.sda.service.impl.StockServiceImpl;
-import ro.sda.view.displayer.OrderDisplayer;
 import ro.sda.view.displayer.StockDisplayer;
-
 
 import java.util.List;
 import java.util.Scanner;
