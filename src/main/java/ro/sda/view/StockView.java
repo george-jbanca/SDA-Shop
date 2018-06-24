@@ -39,7 +39,6 @@ public class StockView implements MyMarketView {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input option: ");
         return scanner.nextInt();
-
     }
 
     public void processOption(int option) {
@@ -54,7 +53,6 @@ public class StockView implements MyMarketView {
             case 0:
             default:
                 return;
-
         }
     }
 }
